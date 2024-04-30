@@ -1,0 +1,13 @@
+<div class="small-picture-container">
+  <picture *ngFor="let key of smallPictureKeys">
+    <source [media]="sourceMedia.DESKTOP" [srcset]="gallery()[key].desktop" width="445"
+        height="280">
+    <source [media]="sourceMedia.TABLET" [srcset]="gallery()[key].tablet" width="277" height="174">
+    <img class="small-picture" [src]="gallery()[key].mobile" width="327" height="174" alt="">
+  </picture>
+</div>
+<picture>
+  <source [media]="sourceMedia.DESKTOP" [srcset]="gallery().third.desktop" width="635" height="592">
+  <source [media]="sourceMedia.TABLET" [srcset]="gallery().third.tablet" width="395" height="368">
+  <img class="big-picture" [src]="gallery().third.mobile" width="327" height="368" alt="">
+</picture>

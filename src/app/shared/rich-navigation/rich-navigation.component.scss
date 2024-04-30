@@ -1,0 +1,101 @@
+@use "sass:color";
+@use "index" as *;
+
+:host {
+  display: block;
+}
+
+.arrow {
+  stroke: $color-accent;
+}
+
+.link-container {
+  display: flex;
+  padding-top: 52px;
+
+  @include mobile {
+    flex-direction: column;
+    gap: 68px;
+  }
+
+  @include tablet {
+    gap: 10px;
+  }
+
+  @include desktop {
+    gap: 30px;
+    padding-top: 80px;
+  }
+
+  &-item {
+    position: relative;
+    flex: 1;
+  }
+}
+
+.link {
+  // Reset anchor style
+  text-decoration: none;
+  color: $color-black;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 16px;
+  border-radius: 8px;
+  background: $color-light-gray;
+  height: 165px;
+  padding-bottom: 22px;
+
+  @include desktop {
+    height: 204px;
+    padding-bottom: 30px;
+  }
+
+  &-image {
+    position: absolute;
+    width: 152px;
+    bottom: 72px;
+    left: 50%;
+    transform: translateX(-50%);
+    pointer-events: none;
+
+    @include desktop {
+      width: 230px;
+      bottom: 64px;
+    }
+  }
+
+  &-label-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 13.322px;
+  }
+
+  &-label {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: color.change($color-black, $alpha: 0.5);
+    transition: $short-color-transition;
+  }
+
+  &:is(:hover, :focus-visible) .link-label {
+    color: $color-accent;
+  }
+}
+
+.product-category {
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 15px;
+  letter-spacing: 1.071px;
+
+  @include desktop {
+    font-size: 18px;
+    letter-spacing: 1.286px;
+  }
+}

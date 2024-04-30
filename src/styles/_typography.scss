@@ -1,0 +1,56 @@
+@use "sass:color";
+@use "colors" as *;
+
+@mixin heading($font-size, $letter-spacing, $line-height: normal) {
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: $font-size;
+  letter-spacing: $letter-spacing;
+  line-height: $line-height;
+}
+
+@mixin h1 {
+  @include heading(56px, 2px, 58px);
+}
+
+@mixin h2 {
+  @include heading(40px, 1.429px, 44px);
+}
+
+@mixin h3 {
+  @include heading(32px, 1.143px, 36px);
+}
+
+@mixin h4 {
+  @include heading(28px, 2px);
+}
+
+@mixin h5 {
+  @include heading(24px, 1.714px);
+}
+
+@mixin h6 {
+  @include heading(18px, 1.286px);
+}
+
+@mixin overline {
+  font-size: 14px;
+  letter-spacing: 10px;
+  text-transform: uppercase;
+  color: $color-accent;
+}
+
+@mixin subtitle {
+  color: $color-accent;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 25px;
+  letter-spacing: 0.929px;
+  text-transform: uppercase;
+}
+
+@mixin body {
+  color: color.change($color-black, $alpha: 0.5);
+  font-size: 15px;
+  line-height: 25px;
+}

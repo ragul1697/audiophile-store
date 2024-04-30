@@ -1,0 +1,31 @@
+<div class="header-placeholder"></div>
+<div class="header">
+  <button type="button" (click)="togglePane()" *ngIf="!isDesktop"
+      [title]="(isPaneOpen ? 'Close' : 'Open') + ' navigation pane'">
+    <app-svg-menu />
+  </button>
+  <a class="logo-container" [routerLink]="isDesktop ? null : '/'"
+      [attr.aria-label]="isDesktop ? null : 'Home'" [attr.role]="isDesktop ? 'none' : null">
+    <app-svg-logo [attr.aria-hidden]="!isDesktop" />
+  </a>
+  <app-navigation class="navigation" *ngIf="isDesktop" />
+  <app-shopping-cart />
+</div>
+<ng-container *ngIf="isPaneOpen && !isDesktop">
+  <div class="pane-container" @pane>
+    <app-rich-navigation />
+  </div>
+  <!-- eslint-disable @angular-eslint/template/interactive-supports-focus -->
+  <!-- eslint-disable @angular-eslint/template/click-events-have-key-events -->
+  <div class="pane-backdrop" (click)="isPaneOpen = false"></div>
+</ng-container>
+<div class="divider-container" *ngIf="pageHeader">
+  <hr class="divider">
+  <div class="pageCategoryHeader" *ngIf="pageHeader !== 'home'; else hero">
+    {{ pageHeader }}
+  </div>
+
+  <ng-template #hero>
+    <app-hero />
+  </ng-template>
+</div>

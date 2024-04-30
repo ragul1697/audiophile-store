@@ -1,0 +1,7 @@
+<button class="button" type="button" (click)="onDecrement()" (blur)="onTouched()"
+    [disabled]="quantity() === MIN" tabindex="-1" aria-hidden="true" title="Decrement">-</button>
+
+<span class="quantity">{{ quantity() }}</span>
+
+<button class="button" type="button" (click)="onIncrement()" (blur)="onTouched()"
+    [disabled]="quantity() === MAX" tabindex="-1" aria-hidden="true" title="Increment">+</button>

@@ -1,0 +1,15 @@
+@use "index" as *;
+
+:host {
+  display: block;
+}
+
+button {
+  @include body;
+  text-decoration: none;
+  transition: $short-color-transition;
+
+  &:is(:hover, :focus-visible) {
+    color: $color-accent;
+  }
+}

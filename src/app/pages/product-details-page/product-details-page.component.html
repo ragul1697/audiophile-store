@@ -1,0 +1,9 @@
+<ng-container *ngIf="product$ | async as product">
+  <app-go-back-button class="back-nav" />
+  <app-product-preview-price [product]="product" />
+  <app-product-info [features]="product.features" [includes]="product.includes" />
+  <app-gallery [gallery]="product.gallery" />
+  <app-product-recommendations [recommendedProducts]="product.others" />
+</ng-container>
+<app-rich-navigation />
+<app-about />

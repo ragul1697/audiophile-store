@@ -1,0 +1,7 @@
+<div class="product-preview-container">
+  <app-product-preview *ngFor="let product of products$ | async" [isNew]="product.isNew"
+      [id]="product.id" [name]="product.name" [description]="product.description"
+      [categoryImage]="product.categoryImage" />
+</div>
+<app-rich-navigation />
+<app-about />

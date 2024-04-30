@@ -1,0 +1,99 @@
+@use "sass:color";
+@use "index" as *;
+
+:host {
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  padding: 32px;
+  background-color: $color-white;
+  width: 100%;
+
+  @include desktop {
+    width: 350px;
+  }
+}
+
+.heading {
+  @include h6;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+
+  &-container {
+    margin: 32px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  &-image {
+    border-radius: 8px;
+    background: $color-light-gray;
+  }
+
+  &-info {
+    margin-left: 16px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  &-name-qty-container {
+    @include flex-center-space-between;
+    @include body;
+    font-weight: 700;
+  }
+
+  &-name {
+    text-transform: uppercase;
+  }
+
+  &-quantity {
+    color: color.change($color-black, $alpha: 0.5);
+  }
+
+  &-price {
+    color: color.change($color-black, $alpha: 0.5);
+    font-size: 14px;
+    line-height: 25px;
+    font-weight: 700;
+  }
+}
+
+.cost {
+  &-container-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &-container {
+    @include flex-center-space-between;
+
+    &.grand-total {
+      margin-top: 24px;
+
+      > .cost-value {
+        color: $color-accent;
+      }
+    }
+  }
+
+  &-label {
+    @include body;
+    text-transform: uppercase;
+  }
+
+  &-value {
+    font-size: 18px;
+    font-weight: 700;
+  }
+}
+
+.dialog-button {
+  margin-top: 32px;
+  width: 100%;
+}

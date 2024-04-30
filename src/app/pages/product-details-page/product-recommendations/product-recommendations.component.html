@@ -1,0 +1,13 @@
+<h2 class="heading">You may also like</h2>
+<ul class="product-container">
+  <li class="product" *ngFor="let product of recommendedProducts()">
+    <picture>
+      <source [media]="sourceMedia.DESKTOP" [srcset]="product.image.desktop" width="350"
+          height="318">
+      <source [media]="sourceMedia.TABLET" [srcset]="product.image.tablet" width="223" height="318">
+      <img class="picture" [src]="product.image.mobile" width="327" height="120" alt="">
+    </picture>
+    <span class="product-name">{{ product.name }}</span>
+    <a class="g-button-accent" [routerLink]="['/product', product.id]">See Product</a>
+  </li>
+</ul>

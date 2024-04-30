@@ -1,0 +1,19 @@
+<picture>
+  <source [media]="sourceMedia.DESKTOP" [srcset]="product().image.desktop" width="540" height="560">
+  <source [media]="sourceMedia.TABLET" [srcset]="product().image.tablet" width="281" height="480">
+  <img class="picture" [src]="product().image.mobile" width="327" height="327" alt="">
+</picture>
+<div class="text-container">
+  <hgroup>
+    <p class="overline" *ngIf="product().isNew">New product</p>
+    <h2 class="heading">{{ product().name }}</h2>
+  </hgroup>
+  <p class="text-body">{{ product().description }}</p>
+  <div class="price">{{ product().price | appCurrency }}</div>
+  <form class="form" #form="ngForm">
+    <app-quantity-control [(ngModel)]="productQuantity" name="quantity" />
+    <button class="g-button-accent" [disabled]="form.invalid" (click)="addToCart()">
+      Add to cart
+    </button>
+  </form>
+</div>

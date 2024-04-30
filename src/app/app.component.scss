@@ -1,0 +1,12 @@
+@use 'index' as *;
+
+:host {
+  display: block;
+
+  // // Center content for manual testing
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+  // min-height: 100vh;
+  // background-color: gray;
+}

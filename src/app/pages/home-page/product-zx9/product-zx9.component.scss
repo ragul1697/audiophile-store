@@ -1,0 +1,135 @@
+@use "sass:color";
+@use "index" as *;
+
+$picture-bottom-offset: 14px;
+
+::selection {
+  background-color: $color-white;
+  color: $color-accent;
+}
+
+:host {
+  overflow: clip; // Prevents the rings from overflowing the container
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: $color-accent;
+  border-radius: 8px;
+  color: $color-white;
+  text-align: center;
+
+  @include mobile {
+    padding: 56px 24px;
+  }
+
+  @include tablet {
+    padding: 52px 172px 64px;
+  }
+
+  @include desktop {
+    padding: 132px 96px 124px 666px;
+    align-items: flex-start;
+    text-align: left;
+  }
+}
+
+.ring-container {
+  position: relative;
+
+  @include desktop {
+    position: absolute;
+    bottom: -$picture-bottom-offset;
+    left: 118px;
+  }
+}
+
+.ring {
+  // Center rings
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  border-radius: 50%;
+  border: 1px solid color.change($color-white, $alpha: 0.2);
+
+  @include ring-sizes((472px 542px 944px));
+
+  @include mobile {
+    @include ring-sizes((280px 320px 558px));
+  }
+}
+
+.picture {
+  @include mobile {
+    width: 172px;
+  }
+
+  @include tablet {
+    width: 196px;
+  }
+
+  @include desktop {
+    width: 384px;
+    clip-path: inset(0 0 $picture-bottom-offset 0);
+  }
+}
+
+.heading {
+  @include h1;
+
+  &-line {
+    display: block;
+  }
+
+  @include mobile {
+    margin-top: 32px;
+
+    // Typography
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 40px;
+    letter-spacing: 1.286px;
+    text-transform: uppercase;
+  }
+
+  @include tablet {
+    margin-top: 64px;
+  }
+}
+
+.text-body {
+  @include body;
+  color: color.change($color-white, $alpha: 0.75);
+  margin: 24px 0 40px;
+  max-width: 348px;
+
+  @include mobile {
+    margin: 24px 0;
+  }
+}
+
+.link {
+  @include button;
+  color: $color-white;
+  transition: background-color $short-transition;
+  background-color: $color-black;
+
+  &:is(:hover, :focus-visible) {
+    background-color: #4c4c4c;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-white;
+    outline-offset: -4px;
+  }
+}
+
+// Paint the rings between the background and the content
+.picture,
+.heading,
+.text-body,
+.link {
+  z-index: 1;
+}

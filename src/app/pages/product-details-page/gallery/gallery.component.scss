@@ -1,0 +1,41 @@
+@use "index" as *;
+
+:host {
+  display: flex;
+
+  @include mobile {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  @include tablet {
+    gap: 18px;
+  }
+
+  @include desktop {
+    gap: 30px;
+  }
+}
+
+.small-picture-container {
+  display: flex;
+  flex-direction: column;
+
+  @include mobile {
+    gap: 20px;
+  }
+
+  @include tablet {
+    gap: 20px;
+  }
+
+  @include desktop {
+    gap: 32px;
+  }
+}
+
+.small-picture,
+.big-picture {
+  border-radius: 8px;
+  background-color: $color-light-gray;
+}

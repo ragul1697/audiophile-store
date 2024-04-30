@@ -1,0 +1,24 @@
+<h2 class="heading">Summary</h2>
+<ul class="item-container">
+  <li class="item" *ngFor="let item of items()">
+    <img class="item-image" [src]="item.imageSrc" alt="" width="64" height="64">
+    <div class="item-info">
+      <p class="item-name-qty-container">
+        <span class="item-name">{{ item.shortName }}</span>
+        <span class="item-quantity">x{{ item.quantity() }}</span>
+      </p>
+      <span class="item-price">{{ item.price | appCurrency }}</span>
+    </div>
+  </li>
+</ul>
+<ul class="cost-container-list">
+  <li class="cost-container" *ngFor="let costEntry of costEntries">
+    <span class="cost-label">{{ costEntry.label }}</span>
+    <span class="cost-value">{{ costEntry.value() | appCurrency }}</span>
+  </li>
+</ul>
+<p class="cost-container grand-total">
+  <span class="cost-label">Grand total</span>
+  <span class="cost-value">{{ priceBreakdown.total() | appCurrency }}</span>
+</p>
+<button class="dialog-button g-button-accent" form="checkout-form">Continue & Pay</button>

@@ -1,0 +1,33 @@
+<button type="button" [title]="(isDialogOpen ? 'Close' : 'Open') + ' shopping cart'"
+    (click)="isDialogOpen = !isDialogOpen">
+  <app-svg-shopping-cart />
+</button>
+
+<ng-container *ngIf="isDialogOpen">
+  <!-- eslint-disable @angular-eslint/template/interactive-supports-focus -->
+  <!-- eslint-disable @angular-eslint/template/click-events-have-key-events -->
+  <div class="backdrop" (click)="isDialogOpen = false" @backdrop></div>
+
+  <dialog class="dialog" open @dialog>
+    <div class="header">
+      <h2 class="heading">Cart ({{ size() }})</h2>
+      <button class="empty-cart" type="button" (click)="emptyCart()">Remove all</button>
+    </div>
+    <ul class="item-container">
+      <li class="item" *ngFor="let item of items()">
+        <img class="item-image" [src]="item.imageSrc" alt="" width="64" height="64">
+        <p class="item-info">
+          <span class="item-name">{{ item.shortName }}</span>
+          <span class="item-price">{{ item.price | appCurrency }}</span>
+        </p>
+        <app-quantity-control class="small" [name]="item.id" [(ngModel)]="item.quantity" />
+      </li>
+    </ul>
+    <p class="total-price-container">
+      <span class="total">Total</span>
+      <span class="total-price">{{ totalPrice() | appCurrency }}</span>
+    </p>
+    <button class="checkout g-button-accent" type="button" (click)="checkOut()"
+        [disabled]="isCartEmpty">Checkout</button>
+  </dialog>
+</ng-container>

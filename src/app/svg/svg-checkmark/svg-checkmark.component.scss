@@ -1,0 +1,9 @@
+@use 'index' as *;
+
+:host {
+  display: block;
+}
+
+circle {
+  fill: $color-accent;
+}

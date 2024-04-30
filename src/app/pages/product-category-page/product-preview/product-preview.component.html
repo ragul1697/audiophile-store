@@ -1,0 +1,13 @@
+<picture>
+  <source [media]="sourceMedia.DESKTOP" [srcset]="categoryImage().desktop" width="540" height="560">
+  <source [media]="sourceMedia.TABLET" [srcset]="categoryImage().tablet" width="689" height="352">
+  <img class="picture" [src]="categoryImage().mobile" width="327" height="352" alt="">
+</picture>
+<div class="text-container">
+  <hgroup>
+    <p class="overline" *ngIf="isNew()">New product</p>
+    <h2 class="heading">{{ name() }}</h2>
+  </hgroup>
+  <p class="text-body">{{ description() }}</p>
+  <a class="g-button-accent" [routerLink]="['/product', id()]">See Product</a>
+</div>

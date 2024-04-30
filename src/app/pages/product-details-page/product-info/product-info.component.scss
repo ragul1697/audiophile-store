@@ -1,0 +1,108 @@
+@use "sass:color";
+@use "index" as *;
+
+:host {
+  display: block;
+}
+
+.container {
+  width: max-content;
+  display: flex;
+  flex-direction: column;
+
+  @include mobile {
+    gap: 88px;
+  }
+
+  @include tablet {
+    gap: 120px;
+  }
+
+  @include desktop {
+    flex-direction: row;
+    gap: 124px;
+  }
+}
+
+.heading {
+  @include h3;
+
+  @include mobile {
+    @include h5;
+  }
+}
+
+.text-body {
+  @include body;
+  margin-top: 32px;
+
+  @include mobile {
+    max-width: 328px;
+    margin-top: 24px;
+    font-weight: 500;
+  }
+
+  @include tablet {
+    max-width: 688px;
+  }
+
+  @include desktop {
+    max-width: 636px;
+  }
+}
+
+.accessory-container {
+  display: flex;
+  flex-direction: column;
+
+  @include mobile {
+    gap: 24px;
+  }
+
+  @include tablet {
+    flex-direction: row;
+
+    .heading,
+    .accessory-list {
+      flex: 1; // Distribute space equally
+    }
+  }
+
+  @include desktop {
+    gap: 32px;
+  }
+}
+
+.accessory-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  // Typography
+  @include body;
+}
+
+.accessory {
+  position: relative;
+}
+
+.accessory-quantity {
+  position: absolute;
+  left: 0;
+
+  // Typography
+  color: $color-accent;
+  font-weight: 700;
+}
+
+.accessory-item {
+  padding-left: 40px;
+
+  // Typography
+  color: color.change($color-black, $alpha: 0.5);
+  text-transform: capitalize;
+
+  @include mobile {
+    font-weight: 500;
+  }
+}

@@ -1,0 +1,113 @@
+@use "sass:color";
+@use "index" as *;
+
+:host {
+  display: block;
+}
+
+.footer {
+  position: relative;
+  background-color: $color-charcoal;
+
+  @include mobile {
+    padding: 52px $mobile-horizontal-page-padding 38px;
+  }
+
+  @include tablet {
+    padding: 60px $tablet-horizontal-page-padding 46px;
+  }
+
+  @include desktop {
+    padding: 75px $desktop-horizontal-page-padding 48px;
+  }
+}
+
+.mark {
+  position: absolute;
+  width: 100px;
+  height: 4px;
+  background-color: $color-accent;
+  top: 0;
+
+  @include mobile {
+    // Center horizontally
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  @include tablet {
+    left: $tablet-horizontal-page-padding;
+  }
+
+  @include desktop {
+    left: $desktop-horizontal-page-padding;
+  }
+}
+
+.logo-nav-container {
+  display: flex;
+
+  @include mobile {
+    flex-direction: column;
+    align-items: center;
+    gap: 48px;
+  }
+
+  @include tablet {
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  @include desktop {
+    justify-content: space-between;
+  }
+}
+
+.body,
+.copyright {
+  @include body;
+  color: color.change($color-white, $alpha: 0.5);
+}
+
+.body {
+  @include mobile {
+    margin: 48px 0;
+    text-align: center;
+  }
+
+  @include tablet {
+    margin: 32px 0 80px;
+    max-width: 720px;
+  }
+
+  @include desktop {
+    margin: 36px 0 56px;
+    max-width: 540px;
+  }
+}
+
+.copyright {
+  font-weight: 700;
+
+  @include mobile {
+    text-align: center;
+  }
+}
+
+.copyright-social-media-container {
+  display: flex;
+  justify-content: space-between;
+
+  @include mobile {
+    flex-direction: column;
+    align-items: center;
+    gap: 48px;
+  }
+}
+
+@include desktop {
+  .social-media {
+    position: relative;
+    bottom: 88px;
+  }
+}

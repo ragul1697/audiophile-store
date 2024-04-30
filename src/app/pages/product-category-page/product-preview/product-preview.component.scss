@@ -1,0 +1,80 @@
+@use "index" as *;
+@use "sass:color";
+
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @include mobile {
+    gap: 32px;
+  }
+
+  @include tablet {
+    gap: 52px;
+  }
+
+  @include desktop {
+    gap: 124px;
+
+    &:nth-child(odd) {
+      flex-direction: row;
+    }
+
+    &:nth-child(even) {
+      flex-direction: row-reverse;
+    }
+  }
+}
+
+.picture {
+  border-radius: 8px;
+  background: $color-light-gray;
+}
+
+.text-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  @include desktop {
+    align-items: flex-start;
+    text-align: left;
+  }
+}
+
+.overline {
+  @include overline;
+}
+
+.heading {
+  white-space: pre;
+  margin-top: 16px;
+  @include h2;
+
+  @include mobile {
+    margin-top: 24px;
+    @include h4;
+  }
+}
+
+.text-body {
+  @include body;
+  color: color.change($color-black, $alpha: 0.5);
+
+  @include mobile {
+    max-width: 328px;
+    margin: 24px 0;
+  }
+
+  @include tablet {
+    max-width: 572px;
+    margin: 32px 0 24px;
+  }
+
+  @include desktop {
+    max-width: 444px;
+    margin: 32px 0 40px;
+  }
+}

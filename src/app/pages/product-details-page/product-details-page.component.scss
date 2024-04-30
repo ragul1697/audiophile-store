@@ -1,0 +1,69 @@
+@use "index" as *;
+
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @include mobile {
+    padding: 16px $mobile-horizontal-page-padding 120px;
+  }
+
+  @include tablet {
+    padding: 32px $tablet-horizontal-page-padding 120px;
+  }
+
+  @include desktop {
+    padding: 80px $desktop-horizontal-page-padding 160px;
+  }
+}
+
+.back-nav {
+  align-self: flex-start;
+}
+
+app-product-preview-price,
+app-product-info {
+  align-self: flex-start;
+
+  @include mobile {
+    align-self: center;
+  }
+}
+
+app-product-preview-price {
+  @include mobile {
+    margin: 24px 0 88px;
+  }
+
+  @include tablet {
+    margin: 24px 0 120px;
+  }
+
+  @include desktop {
+    margin: 56px 0 160px;
+  }
+}
+
+app-gallery {
+  @include mobile {
+    margin: 88px 0 120px;
+  }
+
+  @include tablet {
+    margin: 120px 0;
+  }
+
+  @include desktop {
+    margin: 160px 0;
+  }
+}
+
+app-rich-navigation {
+  align-self: stretch;
+  margin: 120px 0;
+
+  @include desktop {
+    margin: 160px 0;
+  }
+}

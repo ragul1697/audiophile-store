@@ -1,0 +1,31 @@
+@use "index" as *;
+
+:host {
+  display: block;
+}
+
+.link-container {
+  display: flex;
+  gap: 34px;
+
+  @include mobile {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+}
+
+.link {
+  color: $color-white;
+  transition: $short-color-transition;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 25px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+
+  &:is(:hover, :focus-visible) {
+    color: $color-accent;
+  }
+}

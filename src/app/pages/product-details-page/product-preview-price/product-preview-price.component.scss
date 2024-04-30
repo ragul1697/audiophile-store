@@ -1,0 +1,85 @@
+@use "index" as *;
+
+:host {
+  display: flex;
+
+  @include mobile {
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  @include tablet {
+    align-items: center;
+    gap: 70px;
+  }
+
+  @include desktop {
+    align-items: center;
+    gap: 124px;
+  }
+}
+
+.picture {
+  border-radius: 8px;
+  background-color: $color-light-gray;
+}
+
+.overline {
+  @include overline;
+  margin-bottom: 16px;
+
+  @include mobile {
+    margin-bottom: 24px;
+  }
+}
+
+.heading {
+  @include h4;
+  white-space: pre;
+  margin-bottom: 32px;
+
+  @include mobile {
+    margin-bottom: 24px;
+  }
+
+  @include desktop {
+    @include h2;
+  }
+}
+
+.text-body {
+  @include body;
+
+  @include mobile {
+    max-width: 328px;
+  }
+
+  @include tablet {
+    max-width: 340px;
+  }
+
+  @include desktop {
+    max-width: 444px;
+  }
+}
+
+.price {
+  @include h6;
+
+  @include mobile {
+    margin: 24px 0 32px;
+  }
+
+  @include tablet {
+    margin: 32px 0;
+  }
+
+  @include desktop {
+    margin: 32px 0 48px;
+  }
+}
+
+.form {
+  display: flex;
+  gap: 16px;
+}

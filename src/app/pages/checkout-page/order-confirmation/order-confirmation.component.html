@@ -1,0 +1,33 @@
+<dialog class="dialog" #dialog>
+  <app-svg-checkmark />
+  <h2 class="heading">
+    <span class="heading-line">Thank you</span>
+    <span class="heading-line">for your order</span>
+  </h2>
+  <p class="text-body">You will receive an email confirmation shortly.</p>
+  <div class="item-list-outer-container">
+    <div class="item-list-container">
+      <ul class="item-list">
+        <li class="item" *ngFor="let item of (isListExpanded ? items : [items[0]])">
+          <img class="item-image" [src]="item.imageSrc" alt="" width="64" height="64">
+          <div class="item-info">
+            <p class="item-name-qty-container">
+              <span class="item-name">{{ item.shortName }}</span>
+              <span class="item-quantity">x{{ item.quantity() }}</span>
+            </p>
+            <span class="item-price">{{ item.price | appCurrency }}</span>
+          </div>
+        </li>
+      </ul>
+      <hr class="rule" [class.expanded]="isListExpanded">
+      <button class="details-button" type="button" (click)="toggleList()">
+        {{ isListExpanded ? 'View less' : 'and ' + (items.length - 1) + ' other item(s)' }}
+      </button>
+    </div>
+    <div class="total" [class.expanded]="isListExpanded">
+      <span class="total-label">Grand total</span>
+      <span class="total-price">{{ total | appCurrency }}</span>
+    </div>
+  </div>
+  <a class="link g-button-accent" routerLink="/">Back to home</a>
+</dialog>

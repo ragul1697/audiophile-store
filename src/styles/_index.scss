@@ -1,0 +1,53 @@
+@use "colors" as *;
+@forward "colors";
+@forward "breakpoints";
+@forward "typography";
+
+$mobile-horizontal-page-padding: 24px;
+$tablet-horizontal-page-padding: 40px;
+$desktop-horizontal-page-padding: 165px;
+
+$header-height: 90px;
+$header-desktop-height: 96px;
+
+// Transitions
+$short-transition: 0.2s ease;
+$short-color-transition: color $short-transition;
+
+@mixin button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 160px;
+  height: 48px;
+  cursor: pointer;
+
+  &:disabled {
+    cursor: not-allowed;
+    filter: grayscale(100%);
+  }
+
+  // Typography
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+@mixin ring-sizes($diameter-list) {
+  $i: 1;
+  @each $diameter in $diameter-list {
+    &:nth-child(#{$i}) {
+      width: $diameter;
+      height: $diameter;
+    }
+    $i: $i + 1;
+  }
+}
+
+@mixin flex-center-space-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

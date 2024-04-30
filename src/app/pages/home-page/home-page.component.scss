@@ -1,0 +1,62 @@
+@use "index" as *;
+
+:host {
+  display: flex;
+  flex-direction: column;
+
+  @include mobile {
+    padding: 40px $mobile-horizontal-page-padding 120px;
+  }
+
+  @include tablet {
+    padding: 96px $tablet-horizontal-page-padding;
+  }
+
+  @include desktop {
+    padding: 120px $desktop-horizontal-page-padding 200px;
+  }
+}
+
+app-product-zx9 {
+  @include mobile {
+    margin-top: 120px;
+  }
+
+  @include tablet {
+    margin-top: 96px;
+  }
+
+  @include desktop {
+    margin-top: 168px;
+  }
+}
+
+app-product-zx7 {
+  @include mobile {
+    margin: 24px 0;
+  }
+
+  @include tablet {
+    margin: 32px 0;
+  }
+
+  @include desktop {
+    margin: 48px 0;
+  }
+}
+
+app-about {
+  align-self: center;
+
+  @include mobile {
+    margin-top: 120px;
+  }
+
+  @include tablet {
+    margin-top: 96px;
+  }
+
+  @include desktop {
+    margin-top: 200px;
+  }
+}

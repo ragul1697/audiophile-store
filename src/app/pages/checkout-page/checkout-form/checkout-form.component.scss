@@ -1,0 +1,241 @@
+@use "sass:color";
+@use "index" as *;
+
+$text-field-vertical-gap: 24px;
+$text-field-horizontal-gap: 16px;
+$form-control-border-color: $color-accent;
+$form-control-border-error: 2px solid $color-error;
+
+@mixin form-control {
+  height: 56px;
+  border-radius: 8px;
+  border: 1px solid $color-input-border;
+  transition: border-color $short-transition;
+  background-color: $color-white;
+}
+
+:host {
+  display: block;
+  border-radius: 8px;
+  background-color: $color-white;
+
+  @include mobile {
+    padding: 24px 24px 32px;
+  }
+
+  @include tablet {
+    padding: 30px 28px;
+  }
+
+  @include desktop {
+    padding: 54px 48px 48px;
+  }
+}
+
+.form {
+  font-weight: 700;
+}
+
+.heading {
+  margin-bottom: 40px;
+  @include h3;
+
+  @include mobile {
+    margin-bottom: 32px;
+    @include h4;
+    letter-spacing: 1px;
+  }
+}
+
+.subheading {
+  @include subtitle;
+  margin-bottom: 16px;
+}
+
+.shipping-info {
+  margin-top: 52px;
+
+  @include mobile {
+    margin-top: 32px;
+  }
+}
+
+.payment-details {
+  margin-top: 60px;
+
+  @include mobile {
+    margin-top: 32px;
+  }
+}
+
+.text-field-pair {
+  display: flex;
+  gap: $text-field-horizontal-gap;
+
+  > * {
+    flex: 1;
+  }
+
+  @include mobile {
+    flex-direction: column;
+    gap: $text-field-vertical-gap;
+  }
+}
+
+.phone-row {
+  margin-top: $text-field-vertical-gap;
+}
+
+.zip-city-row {
+  margin: $text-field-vertical-gap 0;
+}
+
+.text-field-label,
+.radio-group-label {
+  // Typography
+  font-size: 12px;
+  letter-spacing: -0.214px;
+}
+
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  @include mobile {
+    margin-top: 16px;
+  }
+
+  &-container {
+    display: flex;
+    justify-content: space-between;
+
+    @include mobile {
+      flex-direction: column;
+    }
+  }
+}
+
+.radio-input-label {
+  @include form-control;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding-left: 52px;
+  cursor: pointer;
+
+  .error {
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  // The child combinator (>) is used instead of the implicit descendant combinator ( ).
+  // This is done to avoid a CSS parsing error from the W3C validator.
+  // GitHub issue: https://github.com/validator/validator/issues/1678
+  &:has(> .error) {
+    color: $color-error;
+    border: $form-control-border-error;
+  }
+
+  &:is(:hover, :focus-within, .checked):not(:has(> .error)) {
+    border-color: $form-control-border-color;
+  }
+
+  &.checked .radio-button {
+    background-color: $color-accent;
+    background-clip: content-box;
+  }
+
+  // Typography
+  font-size: 14px;
+  letter-spacing: -0.25px;
+}
+
+.radio-input {
+  appearance: none;
+}
+
+.radio-button {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid $color-input-border;
+  padding: 4px;
+}
+
+.error {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-weight: 400;
+}
+
+.half-width {
+  width: calc((100% - #{$text-field-horizontal-gap}) / 2);
+
+  @include mobile {
+    width: unset;
+  }
+}
+
+.text-field {
+  @include form-control;
+  padding: 0 24px;
+  outline: none;
+
+  // Typography
+  font-size: 14px;
+  letter-spacing: -0.25px;
+  caret-color: $color-accent;
+
+  &-label {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    &:has(> .error) {
+      color: $color-error;
+
+      .text-field {
+        border: $form-control-border-error;
+      }
+    }
+  }
+
+  &::placeholder {
+    color: color.change($color-black, $alpha: 0.4);
+  }
+
+  &:is(:hover, :focus-visible) {
+    border-color: $form-control-border-color;
+  }
+}
+
+.e-money-fields {
+  margin-top: 24px;
+
+  @include mobile {
+    margin-top: 32px;
+  }
+}
+
+.cash-on-delivery {
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+
+  &-paragraph {
+    flex: 1;
+
+    // Typography
+    @include body;
+    font-weight: 400;
+  }
+}

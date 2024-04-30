@@ -1,0 +1,30 @@
+@use "index" as *;
+
+:host {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 32px;
+  height: 320px;
+  border-radius: 8px;
+  background: no-repeat center / cover $color-light-gray;
+
+  @include mobile {
+    background-image: url("/assets/images/home/mobile/speaker-zx7.jpg");
+    padding-left: 24px;
+  }
+
+  @include tablet {
+    background-image: url("/assets/images/home/tablet/speaker-zx7.jpg");
+    padding-left: 62px;
+  }
+
+  @include desktop {
+    background-image: url("/assets/images/home/desktop/speaker-zx7.jpg");
+    padding-left: 96px;
+  }
+}
+
+.heading {
+  @include h4;
+}

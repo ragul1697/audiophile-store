@@ -1,0 +1,33 @@
+@use "index" as *;
+@use "sass:color";
+
+:host {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 120px;
+  height: 48px;
+  padding: 0 16px;
+  background-color: $color-light-gray;
+
+  // Typography
+  font-size: 13px;
+  font-weight: 700;
+
+  &.small {
+    width: 96px;
+    height: 32px;
+    padding: 0 12px;
+  }
+}
+
+.button {
+  width: 16px;
+  color: color.change($color-black, $alpha: 0.25);
+  transition: $short-color-transition;
+  outline: none;
+
+  &:hover {
+    color: $color-accent;
+  }
+}

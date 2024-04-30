@@ -1,0 +1,16 @@
+<div class="ring-container">
+  <div class="ring" *ngFor="let _ of [1,2,3]"></div>
+  <picture>
+    <source [media]="sourceMedia.DESKTOP" [srcset]="picture.desktop">
+    <source [media]="sourceMedia.TABLET" [srcset]="picture.tablet">
+    <img class="picture" [src]="picture.mobile" alt="">
+  </picture>
+</div>
+<h2 class="heading">
+  <span class="heading-line">ZX9</span>
+  <span class="heading-line">Speaker</span>
+</h2>
+<p class="text-body">
+  Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound.
+</p>
+<a class="link" routerLink="/product/zx9-speaker">See Product</a>

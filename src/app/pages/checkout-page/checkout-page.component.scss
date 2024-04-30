@@ -1,0 +1,36 @@
+@use "index" as *;
+
+:host {
+  display: block;
+  background-color: $color-light-gray;
+
+  @include mobile {
+    padding: 16px $mobile-horizontal-page-padding 96px;
+  }
+
+  @include tablet {
+    padding: 48px $tablet-horizontal-page-padding 116px;
+  }
+
+  @include desktop {
+    padding: 80px $desktop-horizontal-page-padding 140px;
+  }
+}
+
+.checkout-container {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+
+  @include desktop {
+    margin-top: 38px;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 30px;
+
+    app-checkout-form {
+      flex: 1;
+    }
+  }
+}

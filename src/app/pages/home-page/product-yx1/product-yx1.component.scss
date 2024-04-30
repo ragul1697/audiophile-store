@@ -1,0 +1,58 @@
+@use "index" as *;
+
+:host {
+  display: flex;
+
+  @include mobile {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  @include tablet {
+    gap: 12px;
+  }
+
+  @include desktop {
+    gap: 30px;
+  }
+}
+
+.picture,
+.text-container {
+  border-radius: 8px;
+  background-color: $color-light-gray;
+
+  @include mobile {
+    width: 100%;
+  }
+}
+.picture {
+  object-fit: cover;
+}
+
+.text-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 32px;
+  height: 320px;
+  flex: 1; // Utilize remaining space
+
+  @include mobile {
+    flex: initial;
+    padding-left: 24px;
+    height: 200px;
+  }
+
+  @include tablet {
+    padding-left: 40px;
+  }
+
+  @include desktop {
+    padding-left: 96px;
+  }
+}
+
+.heading {
+  @include h4;
+}

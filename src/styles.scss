@@ -1,0 +1,47 @@
+/* You can add global styles to this file, and also import other style files */
+@use "index" as *;
+
+::selection {
+  background-color: $color-accent;
+  color: $color-white;
+}
+
+body {
+  font-family: "Manrope", sans-serif;
+  min-width: 280px;
+}
+
+.g-button-accent {
+  @include button;
+  color: $color-white;
+  transition: background-color $short-transition;
+  background-color: $color-accent;
+
+  &:hover,
+  &:focus-visible {
+    background-color: $color-accent-light;
+  }
+}
+
+.g-button-normal {
+  @include button;
+  border: 1px solid $color-black;
+  color: $color-black;
+
+  transition: {
+    duration: 0.4s;
+    timing-function: ease;
+    property: color, background-color, border-color;
+  }
+
+  &:hover,
+  &:focus-visible {
+    background-color: $color-black;
+    color: $color-white;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-white;
+    outline-offset: -4px;
+  }
+}

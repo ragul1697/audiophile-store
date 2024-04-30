@@ -1,0 +1,65 @@
+@use "index" as *;
+
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @include mobile {
+    gap: 40px;
+  }
+
+  @include tablet {
+    gap: 56px;
+  }
+
+  @include desktop {
+    gap: 64px;
+  }
+}
+
+.heading {
+  @include h3;
+
+  @include mobile {
+    @include h5;
+    line-height: 1.5;
+  }
+}
+
+.product {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &-container {
+    display: flex;
+
+    @include mobile {
+      flex-direction: column;
+      gap: 56px;
+    }
+
+    @include tablet {
+      gap: 12px;
+    }
+
+    @include desktop {
+      gap: 30px;
+    }
+  }
+
+  &-name {
+    @include h5;
+    margin: 40px 0 32px;
+
+    @include mobile {
+      margin: 32px 0;
+    }
+  }
+}
+
+.picture {
+  border-radius: 8px;
+  background-color: $color-light-gray;
+}

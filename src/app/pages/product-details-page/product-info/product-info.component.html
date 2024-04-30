@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="features">
+    <h2 class="heading">Features</h2>
+    <p class="text-body">{{ features() }}</p>
+  </div>
+  <div class="accessory-container">
+    <h2 class="heading">In the Box</h2>
+    <ul class="accessory-list">
+      <li class="accessory" *ngFor="let include of includes()">
+        <span class="accessory-quantity">{{ include.quantity }}x</span>
+        <span class="accessory-item">{{ include.item }}</span>
+      </li>
+    </ul>
+  </div>
+</div>

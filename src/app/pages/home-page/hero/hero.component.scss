@@ -1,0 +1,65 @@
+@use "sass:color";
+@use "index" as *;
+
+:host {
+  color: $color-white;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  @include mobile {
+    padding: 108px $mobile-horizontal-page-padding 112px;
+  }
+
+  @include tablet {
+    padding: 126px $tablet-horizontal-page-padding 168px;
+  }
+
+  @include desktop {
+    padding: 128px $desktop-horizontal-page-padding 158px;
+    align-items: flex-start;
+    text-align: left;
+  }
+}
+
+.overline {
+  @include overline;
+  color: color.change($color-white, $alpha: 0.5);
+}
+
+.heading {
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 56px;
+  line-height: 58px;
+  letter-spacing: 2px;
+  margin-top: 24px;
+
+  &-line {
+    display: block;
+  }
+
+  @include mobile {
+    font-size: 36px;
+    line-height: 40px;
+    letter-spacing: 1.286px;
+    margin-top: 16px;
+  }
+}
+
+.text-body {
+  @include body;
+  color: color.change($color-white, $alpha: 0.75);
+  margin-top: 24px;
+  max-width: 348px;
+}
+
+.link {
+  margin-top: 40px;
+
+  @include mobile {
+    margin-top: 28px;
+  }
+}
